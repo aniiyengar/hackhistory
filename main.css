@@ -1,0 +1,131 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#header {
+	width: 100vw;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	background-color: #0080FF;
+	-webkit-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+	box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+}
+
+.header-half {
+	width: 50vw;
+	height: 150px;
+	text-align: center;
+	color: white;
+	font-family: Tahoma;
+	font-size: 40px;
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+.header-half[data-selected="1"] {
+	border-bottom: 55px solid white;
+}
+
+#content {
+	width: 100vw;
+	margin-top: 60px;
+}
+
+.event-card {
+	width: 92vw;
+	height: 540px;
+	margin: 0 4vw 4vw 4vw;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+}
+
+.event-desc {
+	width: 88vw;
+	height: 200px;
+	padding: 50px;
+	padding-top: 300px;
+	font-size: 40px;
+	font-family: Tahoma;
+	color: white;
+}
+
+.location-card {
+	width: 92vw;
+	height: 540px;
+	margin: 0 4vw 4vw 4vw;
+	background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%);
+	background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%);
+	background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 );
+}
+
+.location-card:nth-child(3) {
+	margin-top: 140px;
+}
+
+
+#listbutton {
+	width: 80px;
+	height: 80px;
+	float:right;
+	display:inline-block;
+	margin: 2vw 4vw 2vw 4vw;
+	background-image: url("img/listicon.png");
+	background-size: cover;
+
+	position: relative;
+	top: -60px;
+}
+
+#mapbutton {
+	width: 80px;
+	height: 80px;
+	float:right;
+	display:inline-block;
+	margin: 2vw 4vw 2vw 4vw;
+	background-image: url("img/pinicon.png");
+	background-size: cover;
+
+	position: relative;
+	top: -60px;
+}
+
+#listview {
+	position: relative; 
+	top: 50px;
+}
+
+#mapview {
+	width: 92vw;
+	height: 1350px;
+	margin: auto;
+	position: relative;
+	top: 70px;
+	background-color: red;
+}
+
+#mapbutton[data-selected="1"] {
+	opacity: 1;
+}
+
+#mapbutton[data-selected="0"] {
+	opacity: 0.4;
+}
+
+#listbutton[data-selected="1"] {
+	opacity: 1;
+}
+
+#listbutton[data-selected="0"] {
+	opacity: 0.4;
+}
+
+
+

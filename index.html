@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hack History</title>
+		<link rel="stylesheet" type="text/css" href="main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="header">
+			<div class="header-half">
+				Today in History
+			</div>
+			<div class="header-half">
+				History Near Me
+			</div>
+		</div>
+		<div id="content">
+			<div id="events">
+			</div>
+			<div id="locations">
+				<div id="listbutton" data-button="list"></div>
+				<div id="mapbutton" data-button="map"></div>
+				<div id="listview">
+				</div>
+				<div id="mapview">
+					<div id="mapview"></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			var eventsJSON = [
+			  {
+			    "content": "The United States defeats the British Fleet at the Battle of Lake Erie during the War of 1812.",
+			    "date": "1813",
+			    "image": "./img/erie.png"
+			  },
+			  {
+			    "content": "Lattimer massacre: A sheriff's posse kills 20 unarmed immigrant miners in Pennsylvania, United States.",
+			    "date": "1897",
+			    "image": "./img/lattimer.png"
+			  },
+			  {
+			    "content": "The United States suffers its first loss of an international basketball game in a disputed match against the Soviet Union at the 1972 Summer Olympics in Munich, Germany.",
+			    "date": "1972",
+			    "image": "./img/basketball.png"
+			  },
+			  {
+			    "content": "Lincoln Gordon, American academic and diplomat, United States Ambassador to Brazil (d. 2009)",
+			    "date": "1913",
+			    "image": "./img/gordon.png"
+			  },
+			  {
+			    "content": "Letitia Christian Tyler, American wife of John Tyler, 11th First Lady of the United States (b. 1790)",
+			    "date": "1842",
+			    "image": "./img/tyler.png"
+			  }];
+
+
+			var finalJSON = JSON.parse('[{"sno":23,"landmarkname":"Furness Library, School of Fine Arts, University of Pennsylvania","date_designed":"February 4, 1985 (#72001154)","lat":39.9517,"lon":-75.1928,"distance":0.04,"neighborhood":"University City","description":"Library at the University of Pennsylvania, designed by Frank Furness.","image":"./img/library.png"},{"sno":51,"landmarkname":"Alfred Newton Richards Medical Research Laboratories and David Goddard Laboratories Buildings","date_designed":"January 16, 2009 (#09000081)","lat":39.9497,"lon":-75.1981,"distance":0.31,"neighborhood":"University City","description":"Two connected buildings on the University of Pennsylvania that were designed by Louis Kahn and built in the 1960s","image":"./img/medical.png"},{"sno":66,"landmarkname":"The Woodlands","date_designed":"December 24, 1967 (#67000022)","lat":39.9472,"lon":-75.2028,"distance":0.61,"neighborhood":"University City","description":"Colonial mansion and later a rural cemetery.","image":"./img/woodlands.png"},{"sno":59,"landmarkname":"United States Naval Asylum","date_designed":"January 7, 1976 (#72001173)","lat":39.94389,"lon":-75.1836,"distance":0.77,"neighborhood":"Southwest Center City","description":"Designed by William Strickland.","image":"./img/naval.png"},{"sno":11,"landmarkname":"The College of Physicians of Philadelphia Building","date_designed":"October 6, 2008 (#08001088)","lat":39.9533,"lon":-75.1767,"distance":0.87,"neighborhood":"Rittenhouse Square West","description":"","image":"./img/physicians.png"}]');
+			console.log(finalJSON);
+
+			for (var i = 0; i < finalJSON.length; i++) {
+				var x = finalJSON[i];
+				console.log(x.image);
+				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="event-desc">' + x.landmarkname + '</div></div>');
+			}
+
+			$("#listview .location-card").click(function( ) {
+				location.href="mappy.html?lat=" + $(this).attr("data-latitude") + "&lon=" + $(this).attr("data-longitude");
+			});
+
+			for (var i = 0; i < eventsJSON.length; i++) {
+				var x = eventsJSON[i];
+				console.log(x.image);
+				$("#events").append('<div class="event-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\'><div class="event-desc">' + x.content + '</div></div>');
+			};
+
+			$(window).resize(function() {
+				$("#content").height($(window).height()-$("#header").height());
+			});
+			$("#content").height($(window).height()-$("#header").height());
+			$($(".header-half")[0]).attr("data-selected", "1");
+			$(".header-half").click(function() {
+				$(this).attr("data-selected", "1");
+				if ($(this).text()==$($(".header-half")[0]).text()) {
+					$($(".header-half")[1]).attr("data-selected", "0");
+					$("#locations").hide();
+					$("#events").show();
+				}
+				else {
+					$($(".header-half")[0]).attr("data-selected", "0");
+					$("#events").hide();
+					$("#locations").show();
+				}
+			});
+			if ($(".header-half[data-selected='1']").text()==$($(".header-half")[0]).text()) {
+				$($(".header-half")[1]).attr("data-selected", "0");
+				$("#locations").hide();
+				$("#events").show();
+			}
+			else {
+				$($(".header-half")[0]).attr("data-selected", "0");
+				$("#events").hide();
+				$("#locations").show();
+			}
+			$("#listbutton, #mapbutton").click(function() {
+				$(this).attr("data-selected", "1");
+				if ($(this).attr("data-button")=="list") {
+					$("#mapbutton").attr("data-selected", "0");
+					$("#mapview").hide();
+					$("#listview").show();
+				}
+				else {
+					$("#listbutton").attr("data-selected", "0");
+					$("#mapview").show();
+					$("#listview").hide();
+				}
+			});
+			$("#mapbutton").attr("data-selected", "0");
+			$("#mapview").hide();
+			$("#listview").show();
+			
+		</script>
+	</body>
+</html>
