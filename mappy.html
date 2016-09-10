@@ -50,8 +50,8 @@
 
 // Insert the container into the
 d3.xhr("https://pennapps-xiv-anthonytopper.c9users.io/get_locations/39.9522463/-75.1932323",function(data){
-	//console.log(data);
-	data.forEach(function(d)
+	console.log(data);
+	JSON.parse(data.response).forEach(function(d)
 	  {
 			L.marker([d.lat,d.lon]).bindPopup(L.popup({maxWidth:500}).setContent('<Strong>'+d.landmarkname +'</Strong>'+'<br>'+'<Strong>'+d.distance.toFixed(2)+"mi"+'</Strong>')).addTo(map);
 	  });
