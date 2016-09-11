@@ -29,6 +29,22 @@
 			</div>
 		</div>
 		<script>
+			var addr = window.location.href;
+			function getJsonFromUrl() {
+			  var query = location.search.substr(1);
+			  var result = {};
+			  query.split("&").forEach(function(part) {
+			    var item = part.split("=");
+			    result[item[0]] = decodeURIComponent(item[1]);
+			  });
+			  return result;
+			}
+			if (getJsonFromUrl(addr).t=='p') {
+				$($(".header-half")[1]).attr("data-selected", "1");
+			}
+			else {
+				$($(".header-half")[0]).attr("data-selected", "1");
+			}
 			var eventsJSON = [
 			  {
 			    "content": "The United States defeats the British Fleet at the Battle of Lake Erie during the War of 1812.",
@@ -80,7 +96,7 @@
 				$("#content").height($(window).height()-$("#header").height());
 			});
 			$("#content").height($(window).height()-$("#header").height());
-			$($(".header-half")[0]).attr("data-selected", "1");
+			
 			$(".header-half").click(function() {
 				$(this).attr("data-selected", "1");
 				if ($(this).text()==$($(".header-half")[0]).text()) {
