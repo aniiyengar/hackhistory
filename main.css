@@ -18,7 +18,7 @@
 	overflow: hidden;
 	position: fixed;
 	z-index: 100000;
-	top: 0;
+	top: -7px;
 	left: 0;
 }
 
@@ -93,7 +93,7 @@
 	background-size: cover;
 
 	position: relative;
-	top: -60px;
+	top: 90px;
 }
 
 #mapbutton {
@@ -106,12 +106,12 @@
 	background-size: cover;
 
 	position: relative;
-	top: -60px;
+	top: 90px;
 }
 
 #listview {
 	position: relative; 
-	top: 50px;
+	top: 100px;
 }
 
 #mapview {
@@ -138,6 +138,8 @@
 #listbutton[data-selected="0"] {
 	opacity: 0.4;
 }
+
+
 
 
 
