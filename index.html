@@ -29,7 +29,6 @@
 				<div id="listview">
 				</div>
 				<div id="mapview">
-					<div id="mapview"></div>
 				</div>
 			</div>
 		</div>
@@ -164,7 +163,7 @@
             dragging: 'true'
         }).addTo(map1);
 
-		d3.xhr("https://pennapps-xiv-anthonytopper.c9users.io/get_locations/39.9522463/-75.1932323",function(data){
+		d3.xhr("http://pennapps-xiv-anthonytopper.c9users.io/get_locations/39.9522463/-75.1932323",function(data){
 		console.log(data);
 		JSON.parse(data.response).forEach(function(d)
 		  {

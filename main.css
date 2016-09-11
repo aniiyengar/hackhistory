@@ -117,11 +117,13 @@
 }
 
 #mapview {
-	width: 92vw;
-	height: 1350px;
+	width: 100%;
+	height: 100%;
 	margin: auto;
 	position: relative;
-	top: 210px;
+
+	overflow: hidden;
+	
 }
 
 #mapbutton[data-selected="1"] {
