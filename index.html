@@ -12,6 +12,7 @@
 		<script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=qCHdHcf30c1guM19c286tQVzNtLnUN02"></script>
 	</head>
 	<body>
+		<div id="mapview" style="height:100%;width:100%;"></div>
 		<div id="header">
 			<div class="header-half">
 				Today in History
@@ -27,8 +28,6 @@
 				<div id="listbutton" data-button="list"></div>
 				<div id="mapbutton" data-button="map"></div>
 				<div id="listview">
-				</div>
-				<div id="mapview">
 				</div>
 			</div>
 		</div>
@@ -83,7 +82,7 @@
 			for (var i = 0; i < finalJSON.length; i++) {
 				var x = finalJSON[i];
 				console.log(x.image);
-				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="map-distance">' + x.distance + ' mi</div><div class="event-desc">' + x.landmarkname + '</div></div>');
+				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="map-distance">' + x.distance + ' mi<img src="./img/directions.png" width="50" style="margin-left:10px;margin-bottom:-12px;"/></div><div class="event-desc">' + x.landmarkname + '</div></div>');
 			}
 
 			$("#listview .location-card .map-distance").click(function( ) {
@@ -144,8 +143,9 @@
 				}
 				else {
 					$("#listbutton").attr("data-selected", "0");
-					$("#mapview").show();
+					// $("#mapview").show();
 					$("#listview").hide();
+					location.href="mappy2.html"
 				}
 			});
 			$("#mapbutton").attr("data-selected", "0");
@@ -155,7 +155,7 @@
 		</script>
 
 
-		<script>
+		<!--<script>
         var map1 = L.map('mapview').setView([39.9518,-75.1910], 16);
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
@@ -169,7 +169,7 @@
 		  {
 				L.marker([d.lat,d.lon]).bindPopup(L.popup({maxWidth:500}).setContent('<Strong>'+d.landmarkname +'</Strong>'+'<br>'+'<Strong>'+d.distance.toFixed(2)+"mi"+'</Strong>')).addTo(map1);
 		  });
-	});
+	});-->
 		</script>
 	</body>
 </html>
