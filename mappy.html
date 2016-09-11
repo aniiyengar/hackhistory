@@ -38,8 +38,8 @@
 		border-bottom: 55px solid white;
 	}
 	#lyft {
-		width: 120px;
-		height: 120px;
+		width: 80px;
+		height: 80px;
 		background-image: url("./img/lyft.png");
 		background-size: cover;
 		border-radius: 75px;
@@ -47,8 +47,8 @@
 		-moz-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
 		box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
 		position: fixed;
-		bottom: 40px;
-		right: 40px;
+		bottom: 30px;
+		right: 30px;
 		z-index: 3000000;
 	}
 	</style>
@@ -121,6 +121,11 @@ map.addLayer(temp);
 	});
 	$("#header .header-half:nth-child(2)").click(function() {
 		location.href="index.html?t=p";
+	});
+	$("#lyft").click(function() {
+		var latcoord1 = 39.9518, latcoord2 = getJsonFromUrl(window.location.href).lat;
+		var loncoord1 = -75.1910, loncoord2 = getJsonFromUrl(window.location.href).lon;
+		location.href="lyft://?id=lyft_line&pickup[latitude]=" + latcoord1 + "&pickup[longitude]=" + loncoord1 + "&destination[latitude]=" + latcoord2 + "&destination[longitude]=" + loncoord2;
 	});
     </script>
 
