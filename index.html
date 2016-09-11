@@ -87,7 +87,7 @@
 			for (var i = 0; i < finalJSON.length; i++) {
 				var x = finalJSON[i];
 				console.log(x.image);
-				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background-size:cover;\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="map-distance">' + x.distance + ' mi<img src="./img/directions.png" width="50" style="margin-left:10px;margin-bottom:-12px;"/></div><div class="event-desc">' + x.landmarkname + '</div></div>');
+				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background-size:cover !important;\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="map-distance">' + x.distance + ' mi<img src="./img/directions.png" width="50" style="margin-left:10px;margin-bottom:-12px;"/></div><div class="event-desc">' + x.landmarkname + '</div></div>');
 			}
 
 			$("#listview .location-card .map-distance").click(function( ) {
@@ -103,7 +103,7 @@
 			for (var i = 0; i < eventsJSON.length; i++) {
 				var x = eventsJSON[i];
 				console.log(x.image);
-				$("#events").append('<div class="event-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background-size:cover;\'><div class="event-desc">' + x.content + '</div></div>');
+				$("#events").append('<div class="event-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background-size:cover !important;\'><div class="event-desc">' + x.content + '</div></div>');
 			};
 
 			$(".event-card").click(function() {
