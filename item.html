@@ -1,0 +1,74 @@
+<html>
+<head>
+	<title>Leaflet Quick Start Guide Example</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+	body {
+		font-family: "Roboto", sans-serif;
+	}
+	#header {
+		width: 100vw;
+		height: 80px;
+		display: flex;
+		justify-content: center;
+		background-color: #0080FF;
+		-webkit-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+		box-shadow: 0px 2px 17px -1px rgba(0,0,0,0.75);
+
+		overflow: hidden;
+		position: fixed;
+		z-index: 100000;
+		top: 0;
+		left: 0;
+	}
+
+	.header-half {
+		width: 50vw;
+		height: 75px;
+		text-align: center;
+		color: white;
+		font-family: 'Roboto', sans-serif;
+		font-size: 17px;
+		margin-top: 40px;
+		cursor: pointer;
+	}
+
+	.header-half[data-selected="1"] {
+		border-bottom: 55px solid white;
+	}
+	
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+	<div id="header">
+		<div class="header-half">
+			Today in History
+		</div>
+		<div class="header-half">
+			History Near Me
+		</div>
+	</div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+
+    <img src="http://www.columbia.edu/cu/computinghistory/eniac1.jpg" width="400" /><br/><br/><br/><br/><br/><br/><br/><br/>
+    <h1>ENIAC</h1>
+    <p>Originally announced on February 14, 1946, the Electronic Numerical Integrator and Computer (ENIAC), was the first general-purpose electronic computer. Hailed by The New York Times as "an amazing machine which applies electronic speeds for the first time to mathematical tasks hitherto too difficult and cumbersome for solution," the ENIAC was a revolutionary piece of machinery in its day. It was constructed and operated here at The Moore School of Electrical Engineering, now part of the School of Engineering and Applied Science.</p>
+
+    <script>
+    $("#header .header-half:first-child").click(function() {
+		location.href="index.html?t=e";
+	});
+	$("#header .header-half:nth-child(2)").click(function() {
+		location.href="index.html?t=p";
+	});
+    </script>
+
+    </body>
+</html>
