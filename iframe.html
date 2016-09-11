@@ -3,6 +3,7 @@
 <html>
 <head>
 	<title>Hack History</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<style>
 		#header {
 			width: 100vw;
@@ -35,6 +36,11 @@
 		.header-half[data-selected="1"] {
 			border-bottom: 95px solid white;
 		}
+
+		#frame {
+			width: 100vw;
+			bottom: 0;
+		}
 	</style>
 </head>
 <body>
@@ -47,6 +53,29 @@
 			History Near Me
 		</div>
 	</div>
+
+	<iframe id="frame" src=""></iframe>
+
+	<script>
+	$(window).resize(function() {
+		$("#frame").height($(window).height()-$("#header").height());
+	});
+	$("#frame").height($(window).height()-$("#header").height());
+
+	function getJsonFromUrl() {
+	  var query = location.search.substr(1);
+	  var result = {};
+	  query.split("&").forEach(function(part) {
+	    var item = part.split("=");
+	    result[item[0]] = decodeURIComponent(item[1]);
+	  });
+	  return result;
+	}
+	console.log(getJsonFromUrl(window.location.href).url);
+	//$("#frame").attr("src", getJsonFromUrl(window.location.href).url);
+	document.getElementById('frame').setAttribute('src',getJsonFromUrl(window.location.href).url);
+
+	</script>
 
 </body>
 </html>

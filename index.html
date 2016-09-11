@@ -91,7 +91,7 @@
 			});
 
 			$("#listview .location-card").click(function() {
-				window.open("http://www.google.com/search?q=" + $(this).find(".event-desc").text() + "&btnI");
+				location.href = "iframe.html?http://www.google.com/search?q=" + $(this).find(".event-desc").text() + "&btnI";
 				return false;
 			});
 
@@ -103,7 +103,7 @@
 
 			$(".event-card").click(function() {
 				var t = $(this).find(".event-desc").text();
-				window.open("http://www.google.com/search?q=" + t + "&btnI");
+				location.href = "iframe.html?http://www.google.com/search?q=" + t + "&btnI";
 			});
 
 			$(window).resize(function() {
