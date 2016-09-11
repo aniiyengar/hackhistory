@@ -141,7 +141,24 @@
 	opacity: 0.4;
 }
 
+.map-distance {
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	background-color: white;
+	-webkit-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
+	box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
 
+	position: absolute;
+	left: 40px;
+	top: 40px;
+	text-align: center;
+	line-height: 150px;
+	vertical-align: middle;
+	font-family: 'Roboto', sans-serif;
+	font-size: 30px;	
+}
 
 
 
