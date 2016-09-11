@@ -50,29 +50,34 @@
 			}
 			var eventsJSON = [
 			  {
-			    "content": "The United States defeats the British Fleet at the Battle of Lake Erie during the War of 1812.",
-			    "date": "1813",
-			    "image": "./img/erie.png"
+			    "content": "American Revolutionary War: Battle of Brandywine: The British celebrate a major victory in Chester County, Pennsylvania.",
+			    "date": "1777",
+			    "image": "https://s-media-cache-ak0.pinimg.com/736x/73/89/88/73898896eda96e55b6525647b2521814.jpg",
+			    "more": null
 			  },
 			  {
-			    "content": "Lattimer massacre: A sheriff's posse kills 20 unarmed immigrant miners in Pennsylvania, United States.",
-			    "date": "1897",
-			    "image": "./img/lattimer.png"
+			    "content": "Charles Geschke, American businessman, co-founded Adobe Systems",
+			    "date": "1939",
+			    "image": "https://i.ytimg.com/vi/ySZT8gtPXcw/maxresdefault.jpg",
+			    "more": null
 			  },
 			  {
-			    "content": "The United States suffers its first loss of an international basketball game in a disputed match against the Soviet Union at the 1972 Summer Olympics in Munich, Germany.",
-			    "date": "1972",
-			    "image": "./img/basketball.png"
+			    "content": "Sharon Lamb, American psychologist and academic",
+			    "date": "1955",
+			    "image": "http://static1.squarespace.com/static/55cb9976e4b09acbf6004530/t/55dcae35e4b0e21ade40a422/1440525968159/",
+			    "more": null
 			  },
 			  {
-			    "content": "Lincoln Gordon, American academic and diplomat, United States Ambassador to Brazil (d. 2009)",
-			    "date": "1913",
-			    "image": "./img/gordon.png"
+			    "content": "Earl Holliman, American actor",
+			    "date": "1928",
+			    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Earl_Holliman_Forbidden_Planet_2006.jpg/300px-Earl_Holliman_Forbidden_Planet_2006.jpg",
+			    "more": null
 			  },
 			  {
-			    "content": "Letitia Christian Tyler, American wife of John Tyler, 11th First Lady of the United States (b. 1790)",
-			    "date": "1842",
-			    "image": "./img/tyler.png"
+			    "content": "9/11 terrorist attacks",
+			    "date": "2001",
+			    "image": "http://media.nj.com/ledgerupdates_impact/photo/2010/02/wtc3jpg-566d417df09aa120_large.jpg",
+			    "more": null
 			  }];
 
 
@@ -91,7 +96,7 @@
 			});
 
 			$("#listview .location-card").click(function() {
-				location.href = "iframe.html?url=http://www.google.com/search?q=" + $(this).find(".event-desc").text() + "&btnI";
+				window.open("http://www.google.com/search?q=" + $(this).find(".event-desc").text() + "&btnI");
 				return false;
 			});
 
@@ -103,7 +108,7 @@
 
 			$(".event-card").click(function() {
 				var t = $(this).find(".event-desc").text();
-				location.href = "iframe.html?url=http://www.google.com/search?q=" + t + "&btnI";
+				window.open("http://www.google.com/search?q=" + t + "&btnI");
 			});
 
 			$(window).resize(function() {
@@ -151,6 +156,10 @@
 			$("#mapbutton").attr("data-selected", "0");
 			$("#mapview").hide();
 			$("#listview").show();
+
+			function apn(data) {
+				window.open("http://www.google.com/search?q=" + data.content + "&btnI");
+			}
 			
 		</script>
 
