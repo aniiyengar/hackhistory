@@ -8,7 +8,7 @@
 	<style>
 	#header {
 		width: 100vw;
-		height: 80px;
+		height: 60px;
 		display: flex;
 		justify-content: center;
 		background-color: #0080FF;
@@ -25,12 +25,12 @@
 
 	.header-half {
 		width: 50vw;
-		height: 80px;
+		height: 60px;
 		text-align: center;
 		color: white;
 		font-family: 'Roboto', sans-serif;
 		font-size: 17px;
-		margin-top: 44px;
+		margin-top: 18px;
 		cursor: pointer;
 	}
 
@@ -51,7 +51,7 @@
 			History Near Me
 		</div>
 	</div>
-	<div id="map" style="width: 100%; height: 100%"></div>
+	<div id="mapview" style="width: 100%; height: 100%"></div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
     <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -59,36 +59,13 @@
 <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=qCHdHcf30c1guM19c286tQVzNtLnUN02"></script>
 
 	<script>
-        var map = L.map('map').setView([39.9518,-75.1910], 16);
+        var map2 = L.map('mapview').setView([39.9518,-75.1910], 16);
         //var data = [];
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             maxZoom: 18,
             attribution: ' ',
             dragging: 'true'
-        }).addTo(map);
-	var dir = MQ.routing.directions();
-	
-	function getJsonFromUrl() {
-	  var query = location.search.substr(1);
-	  var result = {};
-	  query.split("&").forEach(function(part) {
-	    var item = part.split("=");
-	    result[item[0]] = decodeURIComponent(item[1]);
-	  });
-	  return result;
-	}
-
-	dir.route({
-	    locations: [
-	        {latLng: { lat: 39.9518, lng: -75.1910}},
-	        {latLng: { lat: getJsonFromUrl(window.location.href).lat, lng: getJsonFromUrl(window.location.href).lon}}
-	    ]
-	});
-	temp=MQ.routing.routeLayer({
-		directions: dir,
-		fitBounds: true
-	});
-
+        }).addTo(map2);
 
 
 // Insert the container into the
@@ -96,11 +73,10 @@ d3.xhr("https://pennapps-xiv-anthonytopper.c9users.io/get_locations/39.9522463/-
 	console.log(data);
 	JSON.parse(data.response).forEach(function(d)
 	  {
-			L.marker([d.lat,d.lon]).bindPopup(L.popup({maxWidth:500}).setContent('<Strong>'+d.landmarkname +'</Strong>'+'<br>'+'<Strong>'+d.distance.toFixed(2)+"mi"+'</Strong>')).addTo(map);
+			L.marker([d.lat,d.lon]).bindPopup(L.popup({maxWidth:500}).setContent('<span style="font-family:\"Roboto\"", sans-serif;<Strong style="font-size:20px;">'+d.landmarkname +'</Strong>'+'<br>'+'<Strong>'+d.distance.toFixed(2)+"mi"+'</Strong>')).addTo(map2);
 	  });
 
 });
-map.addLayer(temp);
 	$("#header .header-half:first-child").click(function() {
 		location.href="index.html?t=e";
 	});
