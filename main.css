@@ -169,18 +169,5 @@
 	width: 100%;
 }
 
-#lyft {
-	width: 150px;
-	height: 150px;
-	background-image: url("./img/lyft.png");
-	background-size: cover;
-	border-radius: 75px;
-	-webkit-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
-	-moz-box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
-	box-shadow: 2px 2px 17px -1px rgba(0,0,0,0.75);
-	position: fixed;
-	bottom: 20px;
-	right: 20px;
-	z-index: 3000000;
-}
+
 
