@@ -87,8 +87,14 @@
 				$("#listview").append('<div class="location-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\' data-latitude="' + x.lat + '" data-longitude="' + x.lon + '"><div class="map-distance">' + x.distance + ' mi</div><div class="event-desc">' + x.landmarkname + '</div></div>');
 			}
 
-			$("#listview .location-card").click(function( ) {
-				location.href="mappy.html?lat=" + $(this).attr("data-latitude") + "&lon=" + $(this).attr("data-longitude");
+			$("#listview .location-card .map-distance").click(function( ) {
+				location.href="mappy.html?lat=" + $(this).parent().attr("data-latitude") + "&lon=" + $(this).parent().attr("data-longitude");
+				return false;
+			});
+
+			$("#listview .location-card").click(function() {
+				window.open("http://www.google.com/search?q=" + $(this).find(".event-desc").text() + "&btnI");
+				return false;
 			});
 
 			for (var i = 0; i < eventsJSON.length; i++) {
@@ -96,6 +102,11 @@
 				console.log(x.image);
 				$("#events").append('<div class="event-card" style=\'background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0.65) 100%), url("' + x.image + '");\'><div class="event-desc">' + x.content + '</div></div>');
 			};
+
+			$(".event-card").click(function() {
+				var t = $(this).find(".event-desc").text();
+				window.open("http://www.google.com/search?q=" + t + "&btnI");
+			});
 
 			$(window).resize(function() {
 				$("#content").height($(window).height()-$("#header").height());
